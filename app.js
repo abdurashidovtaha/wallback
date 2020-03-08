@@ -28,12 +28,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use("/static", express.static(publicPath));
 let media = [];
 server.get("/api/media", (req, res) => {
-  setTimeout(() => {
-    if (Math.random() > 0.3) {
-      res.status(404).send();
-    } else { res.send(media); }
-
-  }, 2000);
+  res.send(media);  
 });
 const storage = multer.diskStorage({
   destination(req, file, callback) {
